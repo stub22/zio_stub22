@@ -16,16 +16,16 @@ To run as a mere client of AWS running independently runtimes is relatively easy
 
 ZIO-enabled libraries offer functional effect APIs to access AWS resources throught the AWS SDK for Java 2.0.
 
-`zio-aws` provides a set of generated service wrapper libraries for many AWS services, in theory all" of them.
+`zio-aws` provides a set of generated service wrapper libraries for many AWS services, in theory "all" of them.
 
-Additional higher level client libraries exist for some services.
+Additional higher level client libraries (based on ZIO 2.x) exist for some of the most popular AWS services:
   
-  * `zio-connect` wraps AWS Dynamodb AND ____,  
+  * `zio-connect` wraps AWS Dynamodb AND S3, offering separate "Connector" libraries for these features.
   * `zio-dynamodb` also wraps AWS Dynamodb database, with more features.
   * `zio-s3` wraps connections to AWS S3 Storage.
   * `zio-sqs` wraps the AWS Simple Query Service.
 
-These libraries are discussed in more detail below.
+All these libraries are discussed in more detail below in the section [ZIO-AWS client libraries]
 
 ### 2) AWS App Containers
 
@@ -54,11 +54,13 @@ be addressed using one of these engineering pathways:
 
 3A) [Lambda Snapstart](https://aws.amazon.com/blogs/aws/new-accelerate-your-lambda-functions-with-lambda-snapstart/) for Java 11 Coretto, introduced 2022-11-28. 
 
-3B) Careful engineering of the Serverless app : small code size, smart data caching, clever riddles
+3B) Careful engineering of the Serverless app : small code size, smart data caching (see `zio-cache`).
 
-3C) Scala.js deployment to use Node.js runtime.  In principle the same Scala codebase may be used for deployments to both JVM and Scala.js. For an inspirational explanation, see docs for [Feral] in the Cats-Effect ecosystem.
+3C) Scala.js deployment to use Node.js runtime for Lambda.  In principle the same Scala codebase may be used for deployments to both JVM and Scala.js. For an inspirational explanation, see docs for `Feral` in the Cats-Effect ecosystem.
 
-3D) Eventual migration towards one of the containerized application approaches above.
+3D) Eventual migration towards one of the containerized application approaches above in section 2, such as 2B `zio-lambda`. 
+
+----
 
 ## Selected Topics in ZIO - AWS interop
 The remainder of this document provides some more detailed notes on the use of conventional Scala + ZIO 2.x for JVM with AWS, focusing only on Scenarios 1 and 3 from above:  Pure AWS Clients (running in any Scala + ZIO environment) and direct Serverless Scala-JVM Lambdas for the JVM.  
@@ -84,8 +86,11 @@ Additional details on AWS Configuration and network connection options are expla
 The ZIO ecosystem contains several higher-level client libraries which provide additional helpful functionality on top of the bare-bones `zio-aws` features.  TODO: Confirm that all of these go through zio-aws layer.
   * [zio-s3](https://zio.dev/zio-s3/)
   * [zio-dynamodb](https://zio.dev/zio-dynamodb/) Provides higher-level features for accessing DynamoDB, including bindiing of a case class to a table schema.  Uses `zio-schema`.
+
   * [zio-sqs](https://zio.dev/zio-sqs/)
   * [zio-connect](https://zio.dev/zio-connect/)
+    * [Dynamodb-Connector](https://zio.dev/zio-connect/dynamodb-connector)
+    * [S3-Connector](https://zio.dev/zio-connect/s3-connector)
 
 ## Executing ZIO Effects inside AWS Serverless Lambdas
 

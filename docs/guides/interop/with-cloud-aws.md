@@ -70,9 +70,7 @@ The remainder of this document provides some more detailed notes on the use of c
 
 The [zio-aws](https://zio.dev/zio-aws/) project ([github](https://github.com/zio/zio-aws)) provides a large set of .jar libraries, each implementing a thin Scala + ZIO wrapper around one of the underlying AWS Java APIs.  This project uses code generation, and attempts to provide wrappers for _all_ AWS services in the AWS SDK for Java v2.
 
-These shallow wrappers are useful when direct access to AWS API features is desirable for our ZIO application.  This may occur when or to be used as a building block for higher level wrappers around specific services."
-
-These wrappers make the API input + output value objects more friendly to the Scala-ZIO developer, but they do not add much service-specific client functionality.
+These `zio-aws` wrappers make the API input + output value objects more friendly to the Scala-ZIO developer, but they do not add much service-specific client functionality.
 Therefore the `zio-aws` setup is appropriate when you want relatively direct access to the AWS client functionality, and you are prepared to build up your Scala + ZIO application or library without additional help.
 
 You can see the long list of available libraries here. https://zio.dev/zio-aws/artifacts

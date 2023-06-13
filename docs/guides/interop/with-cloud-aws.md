@@ -90,8 +90,14 @@ The ZIO ecosystem contains several higher-level client libraries which provide a
   * [zio-sqs](https://zio.dev/zio-sqs/)
   * [zio-connect](https://zio.dev/zio-connect/)
     * [Dynamodb-Connector](https://zio.dev/zio-connect/dynamodb-connector)
-    * [S3-Connector](https://zio.dev/zio-connect/s3-connector)
+    * [S3-Connector](https://zio.dev/zio-connect/s3-connector) : FIXME:  Compare to `zio-s3` above
 
+Additional community libraries
+
+  * [zio-kinesis](https://zio.dev/ecosystem/community/zio-kinesis)
+    * Uses `zio-aws-kinesis`, `zio-aws-dynamodb`, `zio-aws-cloudwatch`, `zio-aws-netty`
+  * [zio-aws-s3](https://zio.dev/ecosystem/community/zio-aws-s3) - FIXME:  How does this contrast to others above?
+  
 ## Executing ZIO Effects inside AWS Serverless Lambdas
 
 Application Scala code (running inside a Lambda invocation) usually builds up a ZIO effect to be run, which we may then execute unsafely.  

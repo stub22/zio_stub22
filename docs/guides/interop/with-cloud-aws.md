@@ -83,11 +83,14 @@ Additional details on AWS Configuration and network connection options are expla
 
 #### Service-specific ZIO ecosystem libraries
 
-The ZIO ecosystem contains several higher-level client libraries which provide additional helpful functionality on top of the bare-bones `zio-aws` features.  TODO: Confirm that all of these go through zio-aws layer.
+The ZIO ecosystem contains several higher-level client libraries which provide additional helpful functionality on top of the bare-bones `zio-aws` features.  
+TODO: Confirm that all of these access AWS through the `zio-aws` features.
   * [zio-s3](https://zio.dev/zio-s3/)
-  * [zio-dynamodb](https://zio.dev/zio-dynamodb/) Provides higher-level features for accessing DynamoDB, including bindiing of a case class to a table schema.  Uses `zio-schema`.
-
+    * TODO: Add some detail here.
+  * [zio-dynamodb](https://zio.dev/zio-dynamodb/) 
+    * Provides higher-level features for accessing DynamoDB, including bindiing of a case class to a table schema, using `zio-schema`.
   * [zio-sqs](https://zio.dev/zio-sqs/)
+    * TODO: Add some detail here.
   * [zio-connect](https://zio.dev/zio-connect/)
     * [Dynamodb-Connector](https://zio.dev/zio-connect/dynamodb-connector)
     * [S3-Connector](https://zio.dev/zio-connect/s3-connector) : FIXME:  Compare to `zio-s3` above

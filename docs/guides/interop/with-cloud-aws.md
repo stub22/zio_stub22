@@ -12,7 +12,7 @@ We divide discussion into 3 main approaches:  1) AWS Client Only, 2) AWS App Con
 
 ### 1) AWS Client Only
 
-To run as a mere client of AWS running independently runtimes is relatively easy, and can be a decent approach to providing some cloud functionality to our apps, without taking on AWS deployment of our code.  Client-only is a fast and easy way to unit test app feature code that reads and writes to AWS services.  This same app feature code may then be used in the more ambitious AWS deployments discussed below.  
+Running our code as a mere client of AWS provides cloud functionality to our apps, without taking on AWS deployment of our own code.  Client-only is a fast and easy way to test app feature code that reads and writes to AWS services.  This same app feature code may then be used in the more ambitious AWS deployments discussed below.  For example if we develop a working DynamoDB app client that runs in our desktop IDE, we may then use that same app client code inside a deployed Lambda function or an ECS container app.
 
 ZIO-enabled libraries offer functional effect APIs to access AWS resources throught the AWS SDK for Java 2.0.
 
